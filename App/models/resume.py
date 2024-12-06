@@ -1,18 +1,20 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from ..models.contact import ContactItem
 from ..models.education import EducationItem
 from ..models.experience import ExperienceItem
 from ..models.project import ProjectItem
 from ..models.skill import SkillsItem
 
+
 @dataclass
 class Resume:
-    name:str
-    contacts: list[ContactItem] = list()
-    educations: list[EducationItem] = list()
-    experiences: list[ExperienceItem] = list()
-    projects: list[ProjectItem] = list()
-    skills: list[SkillsItem] = list()
+    name: str
+    contacts: list[ContactItem] = field(default_factory=list)
+    educations: list[EducationItem] = field(default_factory=list)
+    experiences: list[ExperienceItem] = field(default_factory=list)
+    projects: list[ProjectItem] = field(default_factory=list)
+    skills: list[SkillsItem] = field(default_factory=list)
+
 
 class ResumeBuilder:
     def __init__(self, name: str):
@@ -44,6 +46,3 @@ class ResumeBuilder:
         if not self._resume.educations:
             raise ValueError("At least one education item is required")
         return self._resume
-    
-
-

@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from ..tools.validation import validate_types
 
+
 @dataclass
 @validate_types
 class ExperienceItem:
@@ -9,4 +10,3 @@ class ExperienceItem:
     technologies: list[str]
     bulletpoints: list[str]
     date: str | None = None
-
