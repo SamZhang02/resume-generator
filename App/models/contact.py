@@ -3,7 +3,6 @@ from ..tools.validation import validate_types
 
 @dataclass
 @validate_types
-class ProjectItem:
-    name:str
-    technologies: list[str]
-    bulletpoints: list[str]
+class ContactItem:
+    text:str
+    link: str | None
