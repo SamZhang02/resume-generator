@@ -8,3 +8,4 @@ class ProjectItem:
     name: str
     technologies: list[str]
     bulletpoints: list[str]
+    date: str | None = None

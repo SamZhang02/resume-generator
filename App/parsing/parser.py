@@ -6,6 +6,7 @@ from App.models.skill import SkillsItem
 from ..models.resume import Resume, ResumeBuilder
 import json
 
+
 class Parser:
     keys = ["name", "education", "experience", "projects", "technical_skills"]
 
@@ -30,7 +31,7 @@ class Parser:
         for contact in info_dict["contacts"]:
             resume_builder.add_contact(
                 ContactItem(
-                    contact["text"], contact["link"] if "link" in contact else None
+                    contact["text"], contact["link"] if "link" in contact else ""
                 )
             )
 
@@ -39,8 +40,8 @@ class Parser:
                 EducationItem(
                     education["institution"],
                     education["degree"],
-                    education["location"] if "location" in education else None,
-                    education["date"] if "date" in education else None,
+                    education["location"] if "location" in education else "",
+                    education["date"] if "date" in education else "",
                 )
             )
 
@@ -51,7 +52,8 @@ class Parser:
                     experience["company"],
                     experience["technologies"],
                     experience["bulletpoints"],
-                    experience["date"] if "date" in experience else None,
+                    experience["date"] if "date" in experience else "",
+                    experience["location"] if "location" in experience else "",
                 )
             )
 
@@ -61,6 +63,7 @@ class Parser:
                     project["name"],
                     project["technologies"],
                     project["bulletpoints"],
+                    project["date"] if "date" in project else "",
                 )
             )
 
@@ -68,7 +71,3 @@ class Parser:
             resume_builder.add_skill(SkillsItem(categorie, skills))
 
         return resume_builder.build()
-
-parser = Parser("./info.json")
-resume = parser.parse()
-

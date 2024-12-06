@@ -6,7 +6,7 @@ from ..models.project import ProjectItem
 from ..models.skill import SkillsItem
 
 
-@dataclass
+@dataclass(frozen=True)
 class Resume:
     name: str
     contacts: list[ContactItem] = field(default_factory=list)

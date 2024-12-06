@@ -10,3 +10,4 @@ class ExperienceItem:
     technologies: list[str]
     bulletpoints: list[str]
     date: str | None = None
+    location: str | None = None
