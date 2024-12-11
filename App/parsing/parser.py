@@ -72,5 +72,6 @@ class Parser:
 
         return resume_builder.build()
 
+
 parser = Parser("./info.json")
 resume = parser.parse()

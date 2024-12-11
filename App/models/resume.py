@@ -46,4 +46,3 @@ class ResumeBuilder:
         if not self._resume.educations:
             raise ValueError("At least one education item is required")
         return self._resume
-

@@ -8,6 +8,7 @@ from .cli.cli import CLI
 from .parsing.parser import Parser
 from .rendering.templates.jake_resume import JakeResumeRenderer
 
+
 def parse_args():
     parser = argparse.ArgumentParser(
         description="CLI Tool for Resume Customization. Parses input JSON and allows customization of resume sections."
@@ -15,38 +16,34 @@ def parse_args():
 
     # Required Arguments
     parser.add_argument(
-        "--data_path", 
-        type=Path, 
+        "--data_path",
+        type=Path,
         required=True,
-        help="Path to the input JSON file containing resume data."
+        help="Path to the input JSON file containing resume data.",
     )
     parser.add_argument(
-        "--out_path", 
-        type=Path, 
-        required=True,
-        help="Path to save the output file."
+        "--out_path", type=Path, required=True, help="Path to save the output file."
     )
 
     # Optional Arguments
     parser.add_argument(
-        "--to_pdf", 
-        action="store_true",
-        help="Compile the resume into PDF as well."
+        "--to_pdf", action="store_true", help="Compile the resume into PDF as well."
     )
     parser.add_argument(
-        "--format_tex", 
+        "--format_tex",
         action="store_true",
-        help="Format the generated tex file (requires latexindent)."
+        help="Format the generated tex file (requires latexindent).",
     )
 
     # parser.add_argument(
-    #     "--template", 
-    #     type=str, 
+    #     "--template",
+    #     type=str,
     #     default="jake_resume",
     #     help="Specify the template style to use for rendering (e.g., 'modern', 'classic')."
     # )
 
     return parser.parse_args()
+
 
 def main():
     args = parse_args()
@@ -66,10 +63,9 @@ def main():
 
     renderer = JakeResumeRenderer(args.out_path)
     renderer.render_document(custom_resume)
-    
-    print(args)  
+
+    print(args)
+
 
 if __name__ == "__main__":
     main()
-
-
