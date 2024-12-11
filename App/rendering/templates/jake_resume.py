@@ -203,12 +203,3 @@ class JakeResumeRenderer(Renderer):
         with open(self.out_path, "w") as fobj:
             fobj.write(document)
 
-
-import pprint
-
-parser = Parser("./info.json")
-resume = parser.parse()
-pprint.pprint(resume)
-
-renderer = JakeResumeRenderer("./test.tex")
-renderer.render_document(resume)
