@@ -184,6 +184,9 @@ class JakeResumeRenderer(Renderer):
          \end{{itemize}}"""
 
     def render_document(self, resume: Resume):
+        if not resume:
+            raise ValueError("Did not receive a resume to render")
+
         document = rf"""
                 {self.header}
 
@@ -202,4 +205,3 @@ class JakeResumeRenderer(Renderer):
 
         with open(self.out_path, "w") as fobj:
             fobj.write(document)
-

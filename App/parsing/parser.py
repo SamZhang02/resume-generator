@@ -71,3 +71,6 @@ class Parser:
             resume_builder.add_skill(SkillsItem(categorie, skills))
 
         return resume_builder.build()
+
+parser = Parser("./info.json")
+resume = parser.parse()

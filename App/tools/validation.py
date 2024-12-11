@@ -43,5 +43,4 @@ def _is_valid_type(value, expected_type):
     if value is None:
         return origin == None
 
-    print(expected_type)
     return isinstance(value, expected_type)
