@@ -15,3 +15,6 @@ install args:
   venv/bin/pip3 install {{args}}
   echo "Updating requirements.txt..."
   venv/bin/pip3 freeze > requirements.txt
+
+run args:
+  venv/bin/python3 -m {{args}}
