@@ -1,10 +1,9 @@
-from App.models.contact import ContactItem
-from App.models.education import EducationItem
-from App.models.experience import ExperienceItem
-from App.models.project import ProjectItem
-from App.models.skill import SkillsItem
-from App.models.resume import Resume
-from ...parsing.parser import Parser
+from ...models.contact import ContactItem
+from ...models.education import EducationItem
+from ...models.experience import ExperienceItem
+from ...models.project import ProjectItem
+from ...models.skill import SkillsItem
+from ...models.resume import Resume
 
 from ..renderer import Renderer
 
@@ -134,6 +133,9 @@ class JakeResumeRenderer(Renderer):
           \resumeItemListEnd"""
 
     def _render_experiences(self, experiences: list[ExperienceItem]):
+        if not experiences:
+            return ""
+
         rendered = [self._render_experience(exp) for exp in experiences]
 
         return fr"""\section{{Experience}}
@@ -147,6 +149,9 @@ class JakeResumeRenderer(Renderer):
               {{{education.degree}}}{{{education.date}}}"""
 
     def _render_educations(self, educations: list[EducationItem]):
+        if not educations:
+            return ""
+
         rendered = [self._render_education(education) for education in educations]
 
         return fr"""\section{{Education}}
@@ -163,6 +168,9 @@ class JakeResumeRenderer(Renderer):
           \resumeItemListEnd"""
 
     def _render_projects(self, projects: list[ProjectItem]):
+        if not projects:
+            return ""
+
         rendered = [self._render_project(project) for project in projects]
 
         return fr"""\section{{Projects}}
@@ -174,6 +182,9 @@ class JakeResumeRenderer(Renderer):
         return rf"\textbf{{{skill.category}}}{{: {", ".join(skill.items)}}} \\"
 
     def _render_skills(self, skills: list[SkillsItem]):
+        if not skills:
+            return ""
+
         rendered = [self._render_skill(skill) for skill in skills]
 
         return fr"""\section{{Technical Skills}}

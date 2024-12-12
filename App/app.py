@@ -1,8 +1,7 @@
 import argparse
 from pathlib import Path
-from re import fullmatch
 
-from App.rendering import renderer
+from App.rendering.renderer import Renderer
 
 from .cli.cli import CLI
 from .parsing.parser import Parser
@@ -35,13 +34,6 @@ def parse_args():
         help="Format the generated tex file (requires latexindent).",
     )
 
-    # parser.add_argument(
-    #     "--template",
-    #     type=str,
-    #     default="jake_resume",
-    #     help="Specify the template style to use for rendering (e.g., 'modern', 'classic')."
-    # )
-
     return parser.parse_args()
 
 
@@ -61,10 +53,10 @@ def main():
     if not custom_resume:
         raise ValueError("Did not receive a resume to render")
 
-    renderer = JakeResumeRenderer(args.out_path)
+    renderer: Renderer = JakeResumeRenderer(args.out_path)
     renderer.render_document(custom_resume)
 
-    print(args)
+    print(f"Resume tex file written to {renderer.out_path}.")
 
 
 if __name__ == "__main__":

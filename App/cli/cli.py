@@ -1,7 +1,4 @@
-from pprint import pprint
 from InquirerPy import inquirer
-
-from App.parsing.parser import resume
 
 from ..models.resume import Resume, ResumeBuilder
 
@@ -19,6 +16,8 @@ class CLI:
             message="Select contact methods to include:",
             choices=[contact.text for contact in contacts],
             vi_mode=True,
+            enabled_symbol="[x]",
+            disabled_symbol="[ ]",
         ).execute()
 
         return [contact for contact in contacts if contact.text in to_include]
@@ -33,6 +32,8 @@ class CLI:
                 for education in educations
             ],
             vi_mode=True,
+            enabled_symbol="[x]",
+            disabled_symbol="[ ]",
         ).execute()
 
         return [
@@ -51,6 +52,8 @@ class CLI:
                 for experience in experiences
             ],
             vi_mode=True,
+            enabled_symbol="[x]",
+            disabled_symbol="[ ]",
         ).execute()
 
         return [
@@ -67,6 +70,8 @@ class CLI:
             message="Select projects to include:",
             choices=[project.name for project in projects],
             vi_mode=True,
+            enabled_symbol="[x]",
+            disabled_symbol="[ ]",
         ).execute()
 
         return [project for project in projects if project.name in to_include]
@@ -78,6 +83,8 @@ class CLI:
             message="Select skill sections to include:",
             choices=[f"{skill.category}: {skill.items}" for skill in skills],
             vi_mode=True,
+            enabled_symbol="[x]",
+            disabled_symbol="[ ]",
         ).execute()
 
         return [
@@ -97,6 +104,8 @@ class CLI:
 
         for add_item, query in methods:
             for item in query():
+                if not item:
+                    continue
                 add_item(item)
 
         self.custom_resume = self.custom_resume_builder.build()
