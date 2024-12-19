@@ -18,3 +18,6 @@ install args:
 
 run args:
   venv/bin/python3 -m {{args}}
+
+demo:
+  venv/bin/python3 -m App.app --data_path info.json --out_path sam_zhang_resume.tex --format_tex

@@ -1,9 +1,10 @@
-from App.models.contact import ContactItem
-from App.models.education import EducationItem
-from App.models.experience import ExperienceItem
-from App.models.project import ProjectItem
-from App.models.skill import SkillsItem
+from ..models.contact import ContactItem
+from ..models.education import EducationItem
+from ..models.experience import ExperienceItem
+from ..models.project import ProjectItem
+from ..models.skill import SkillsItem
 from ..models.resume import Resume, ResumeBuilder
+
 import json
 
 

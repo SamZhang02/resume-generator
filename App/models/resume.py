@@ -43,6 +43,4 @@ class ResumeBuilder:
     def build(self):
         if not self._resume.contacts:
             raise ValueError("At least one contact item is required")
-        if not self._resume.educations:
-            raise ValueError("At least one education item is required")
         return self._resume
