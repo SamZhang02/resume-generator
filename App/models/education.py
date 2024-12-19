@@ -9,3 +9,4 @@ class EducationItem:
     degree: str
     location: str | None = None
     date: str | None = None
+    link: str | None = None

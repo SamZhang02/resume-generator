@@ -169,4 +169,5 @@ cython_debug/
 *.out
 *.pdf
 *.synctex.gz
+*.bak*
 *.tex

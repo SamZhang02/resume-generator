@@ -15,7 +15,7 @@ class CLI:
         contacts = self.full_resume.contacts
 
         to_include = inquirer.checkbox(
-            message="Select contact methods to include:",
+            message="Select contact methods to include: (C-a to toggle all)",
             choices=[contact.text for contact in contacts],
             vi_mode=True,
             enabled_symbol="[x]",
@@ -28,7 +28,7 @@ class CLI:
         educations = self.full_resume.educations
 
         to_include = inquirer.checkbox(
-            message="Select education experiences to include:",
+            message="Select education experiences to include: (C-a to toggle all)",
             choices=[
                 f"{education.institution} - {education.degree}"
                 for education in educations
@@ -48,7 +48,7 @@ class CLI:
         experiences = self.full_resume.experiences
 
         to_include = inquirer.checkbox(
-            message="Select experiences to include:",
+            message="Select experiences to include: (C-a to toggle all)",
             choices=[
                 f"{experience.company} - {experience.title} - {experience.date}"
                 for experience in experiences
@@ -69,7 +69,7 @@ class CLI:
         projects = self.full_resume.projects
 
         to_include = inquirer.checkbox(
-            message="Select projects to include:",
+            message="Select projects to include: (C-a to toggle all)",
             choices=[project.name for project in projects],
             vi_mode=True,
             enabled_symbol="[x]",
@@ -87,7 +87,7 @@ class CLI:
             category = skill.category
 
             checked = inquirer.checkbox(
-                message=f"Select {category} skills to include:",
+                message=f"Select {category} skills to include: (C-a to toggle all)",
                 choices=skill.items,
                 vi_mode=True,
                 enabled_symbol="[x]",

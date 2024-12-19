@@ -11,3 +11,4 @@ class ExperienceItem:
     bulletpoints: list[str]
     date: str | None = None
     location: str | None = None
+    link: str | None = None

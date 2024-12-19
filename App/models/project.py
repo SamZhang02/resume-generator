@@ -9,3 +9,4 @@ class ProjectItem:
     technologies: list[str]
     bulletpoints: list[str]
     date: str | None = None
+    link: str | None = None

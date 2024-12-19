@@ -9,7 +9,8 @@ from ..renderer import Renderer
 
 
 class JakeResumeRenderer(Renderer):
-    header = r"""\documentclass[letterpaper,11pt]{article}
+    header = r"""
+\documentclass[letterpaper,11pt]{article}
 
 \usepackage{latexsym}
 \usepackage[empty]{fullpage}
@@ -125,9 +126,11 @@ class JakeResumeRenderer(Renderer):
         \end{{center}}"""
 
     def _render_experience(self, experience: ExperienceItem):
+        company_link = f"{{{experience.company}}}" if not experience.link else fr"\href{{{experience.link}}}{{{experience.company}}}"
+
         return fr"""\resumeSubheading
           {{{experience.title}}}{{{experience.date}}}
-          {{{experience.company}}}{{{experience.location}}}
+          {{{company_link}}}{{{experience.location}}}
           \resumeItemListStart
             {"\n".join(f"\\resumeItem{{{bulletpoint}}}" for bulletpoint in experience.bulletpoints)}
           \resumeItemListEnd"""
@@ -144,8 +147,10 @@ class JakeResumeRenderer(Renderer):
           \resumeSubHeadingListEnd"""
 
     def _render_education(self, education: EducationItem):
+        education_link = f"{{{education.institution}}}" if not education.link else fr"\href{{{education.link}}}{{{education.institution}}}"
+
         return rf"""\resumeSubheading
-              {{{education.institution}}}{{{education.location}}}
+              {{{education_link}}}{{{education.location}}}
               {{{education.degree}}}{{{education.date}}}"""
 
     def _render_educations(self, educations: list[EducationItem]):
@@ -160,9 +165,10 @@ class JakeResumeRenderer(Renderer):
           \resumeSubHeadingListEnd"""
 
     def _render_project(self, project: ProjectItem):
+        project_link = f"{{{project.name}}}" if not project.link else fr"\href{{{project.link}}}{{{project.name}}}"
 
         return fr"""\resumeProjectHeading
-          {{\textbf{{{project.name}}} $|$ \emph{{{", ".join(project.technologies)}}}}}{{{project.date}}}
+          {{\textbf{{{project_link}}} $|$ \emph{{{", ".join(project.technologies)}}}}}{{{project.date}}}
           \resumeItemListStart
             {"\n".join(f"\\resumeItem{{{bulletpoint}}}" for bulletpoint in project.bulletpoints)}
           \resumeItemListEnd"""
