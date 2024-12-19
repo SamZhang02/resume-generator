@@ -1,5 +1,7 @@
 from InquirerPy import inquirer
 
+from App.models.skill import SkillsItem
+
 from ..models.resume import Resume, ResumeBuilder
 
 
@@ -79,19 +81,26 @@ class CLI:
     def _query_skills(self):
         skills = self.full_resume.skills
 
-        to_include = inquirer.checkbox(
-            message="Select skill sections to include:",
-            choices=[f"{skill.category}: {skill.items}" for skill in skills],
-            vi_mode=True,
-            enabled_symbol="[x]",
-            disabled_symbol="[ ]",
-        ).execute()
+        to_include:list[SkillsItem] = []
 
-        return [
-            skill
-            for skill in skills
-            if f"{skill.category}: {skill.items}" in to_include
-        ]
+        for skill in skills:
+            category = skill.category
+
+            checked = inquirer.checkbox(
+                message=f"Select {category} skills to include:",
+                choices=skill.items,
+                vi_mode=True,
+                enabled_symbol="[x]",
+                disabled_symbol="[ ]",
+            ).execute()
+
+            category_items = [item for item in skill.items if item in checked]
+
+            if category_items:
+                to_include.append(SkillsItem(category, category_items))
+
+        return to_include
+
 
     def start(self):
         methods = [
@@ -106,6 +115,6 @@ class CLI:
             for item in query():
                 if not item:
                     continue
-                add_item(item)
+                add_item(item) 
 
         self.custom_resume = self.custom_resume_builder.build()
