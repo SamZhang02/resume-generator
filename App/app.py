@@ -20,17 +20,17 @@ def parse_args():
         description="CLI Tool for Resume Customization. Parses input JSON and allows customization of resume sections."
     )
 
-    _ = parser.add_argument(
+    parser.add_argument(
         "--data_path",
         type=Path,
         required=True,
         help="Path to the input JSON file containing resume data.",
     )
-    _ = parser.add_argument(
+    parser.add_argument(
         "--out_path", type=Path, required=True, help="Path to save the output file."
     )
 
-    _ = parser.add_argument(
+    parser.add_argument(
         "--format_tex",
         action="store_true",
         help="Format the generated tex file (requires latexindent).",
