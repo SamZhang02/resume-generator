@@ -1,0 +1,123 @@
+{
+  "name": "Sam Zhang",
+  "contacts": [
+    { "text": "+1 (438) 630-2638" },
+    {
+      "text": "sam.zijing.zhang@gmail.com",
+      "link": "mailto:sam.zijing.zhang@gmail.com"
+    },
+    {
+      "text": "linkedin.com/in/zhang-sam",
+      "link": "https://linkedin.com/in/zhang-sam"
+    },
+    {
+      "text": "github.com/SamZhang02",
+      "link": "https://github.com/SamZhang02"
+    },
+    {
+      "text": "cs.mcgill.ca/~szhang139",
+      "link": "https://cs.mcgill.ca/~szhang139"
+    }
+  ],
+  "education": [
+    {
+      "institution": "McGill University",
+      "degree": "B.A., Joint Computer Science and Statistics",
+      "location": "Montreal, Canada",
+      "date": "Aug. 2022 - May 2026 (Expected)"
+    },
+    {
+      "institution": "National University of Singapore",
+      "degree": "Exchange Student",
+      "location": "Singapore",
+      "date": "Aug. 2024 - Dec. 2024"
+    }
+  ],
+  "experience": [
+    {
+      "title": "Software Developer Intern",
+      "company": "Dayforce",
+      "technologies": ["TypeScript", "React", "C#", ".NET", "SQL"],
+      "date": "Sept. 2023 - Apr. 2024",
+      "bulletpoints": [
+        "Contributed to the new Position Management module of the Dayforce application as a full-stack web developer.",
+        "Implemented a new frontend UI using internal component libraries with \\textbf{TypeScript, React}, enhancing user experience and accessibility.",
+        "Led the refactor of the frontend state management framework based on \\textbf{Redux}, \\textbf{reducing prop drilling and unnecessary client-side rendering}, resulting in improved developer efficiency and application performance.",
+        "Resolved bugs in the backend microservice built with \\textbf{C\\# and .NET}, focusing on data accuracy and integrity, which improved data reliability for end users.",
+        "Designed and implemented unit tests and integration tests for new features using \\textbf{Cypress} and \\textbf{Specflow}, ensuring a code coverage of \\textbf{85\\%+}, thereby increasing application reliability and code robustness."
+      ]
+    },
+    {
+      "title": "Machine Learning Engineer Intern",
+      "company": "Meituan",
+      "technologies": ["Hadoop", "TensorFlow", "Python", "Scala", "SQL"],
+      "date": "May 2023 - Aug. 2023",
+      "bulletpoints": [
+        "Engaged in \\textbf{recommendation algorithms research and development} for a lifestyle and consumer reviews application, focusing on optimizing the advertisement recommender system.",
+        "Led \\textbf{two comprehensive machine learning projects from data engineering to model evaluation}, ensuring adherence to strict project timelines and delivering high-quality results.",
+        "Engineered and managed over \\textbf{150TB of data using HiveQL, Spark, and MapReduce}, handling complex data pipelines and ensuring efficient processing and storage of massive datasets.",
+        "Achieved \\textbf{significant improvements in the Click-Through-Rate (CTR) model's performance} by integrating new image and natural language features using TensorFlow, enhancing the model's understanding of ad and user context."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "mcgill.courses",
+      "technologies": ["TypeScript", "React", "Rust", "MongoDB"],
+      "bulletpoints": [
+        "Co-created and maintaining an open-source platform built in \\textbf{TypeScript, React and Rust} for McGill University students to efficiently search and review courses, solving the problem of fragmented academic ressources for students and currently serving \\textbf{thousands of active users}.",
+        "Created and maintained a rigourous automated testing pipeline using \\textbf{GitHub Actions}."
+      ]
+    },
+    {
+      "name": "Llmbda",
+      "technologies": ["PyTorch", "Python"],
+      "bulletpoints": [
+        "Fine-tuned and prompt engineered Meta's open-source \\textbf{Large Language Model (LLM) Llama 2} to investigate LLM's ability to understand logical semantics in semiformal natural language, with independently developed metrics and evaluation pipeline built in \\textbf{Python}."
+      ]
+    },
+    {
+      "name": "Protect your Home",
+      "technologies": ["C++", "Arduino, Python, TensorFlow, TypeScript"],
+      "bulletpoints": [
+        "Developed a two-factor authentication smart lock prototype by programming three independent ESP32 microcontrollers and their sensors in \\textbf{Arduino C++}, designing and implementing a cloud backend for real-time deep learning inference in \\textbf{Python}, and building a user interface for adding/removing users and viewing log-in data in \\textbf{TypeScript React}."
+      ]
+    }
+  ],
+  "technical_skills": {
+    "Languages": [
+      "Python",
+      "TypeScript",
+      "JavaScript",
+      "Java",
+      "Scala",
+      "C",
+      "C++",
+      "C\\#",
+      "Rust",
+      "Go",
+      "SQL"
+    ],
+    "Databases": ["SQLite", "HiveQL", "MySQL", "MongoDB"],
+    "Frameworks \\& Libraries": [
+      "React",
+      "TailwindCSS",
+      "TensorFlow",
+      "PyTorch",
+      ".NET",
+      "Flask",
+      "FastAPI"
+    ],
+    "Tools": [
+      "Bash",
+      "Linux",
+      "Git",
+      "GitHub",
+      "Azure DevOps",
+      "Docker",
+      "Spark",
+      "Hadoop",
+      "HDFS"
+    ]
+  }
+}
