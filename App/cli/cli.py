@@ -81,7 +81,7 @@ class CLI:
     def _query_skills(self):
         skills = self.full_resume.skills
 
-        to_include:list[SkillsItem] = []
+        to_include: list[SkillsItem] = []
 
         for skill in skills:
             category = skill.category
@@ -101,7 +101,6 @@ class CLI:
 
         return to_include
 
-
     def start(self):
         methods = [
             (self.custom_resume_builder.add_contact, self._query_contacts),
@@ -115,6 +114,6 @@ class CLI:
             for item in query():
                 if not item:
                     continue
-                add_item(item) 
+                add_item(item)
 
         self.custom_resume = self.custom_resume_builder.build()

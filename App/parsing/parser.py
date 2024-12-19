@@ -11,10 +11,12 @@ import json
 
 
 class Parser:
-    keys:set[str] = set(["name", "education", "experience", "projects", "technical_skills"])
+    keys: set[str] = set(
+        ["name", "education", "experience", "projects", "technical_skills"]
+    )
 
-    def __init__(self, json_path:Path) -> None:
-        self.json_path:Path = json_path
+    def __init__(self, json_path: Path) -> None:
+        self.json_path: Path = json_path
 
     def _validate_keys(self, info_dict):
         for key in self.keys:
@@ -45,7 +47,7 @@ class Parser:
                     education["degree"],
                     education["location"] if "location" in education else "",
                     date=education["date"] if "date" in education else "",
-                    link=education["link"] if "link" in education else "" 
+                    link=education["link"] if "link" in education else "",
                 )
             )
 
@@ -58,7 +60,7 @@ class Parser:
                     experience["bulletpoints"],
                     date=experience["date"] if "date" in experience else "",
                     location=experience["location"] if "location" in experience else "",
-                    link=experience["link"] if "link" in experience else "" 
+                    link=experience["link"] if "link" in experience else "",
                 )
             )
 
@@ -69,7 +71,7 @@ class Parser:
                     project["technologies"],
                     project["bulletpoints"],
                     date=project["date"] if "date" in project else "",
-                    link=project["link"] if "link" in project else "" 
+                    link=project["link"] if "link" in project else "",
                 )
             )
 

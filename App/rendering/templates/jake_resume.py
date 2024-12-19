@@ -126,7 +126,11 @@ class JakeResumeRenderer(Renderer):
         \end{{center}}"""
 
     def _render_experience(self, experience: ExperienceItem):
-        company_link = f"{{{experience.company}}}" if not experience.link else fr"\href{{{experience.link}}}{{{experience.company}}}"
+        company_link = (
+            f"{{{experience.company}}}"
+            if not experience.link
+            else rf"\href{{{experience.link}}}{{{experience.company}}}"
+        )
 
         return fr"""\resumeSubheading
           {{{experience.title}}}{{{experience.date}}}
@@ -147,7 +151,11 @@ class JakeResumeRenderer(Renderer):
           \resumeSubHeadingListEnd"""
 
     def _render_education(self, education: EducationItem):
-        education_link = f"{{{education.institution}}}" if not education.link else fr"\href{{{education.link}}}{{{education.institution}}}"
+        education_link = (
+            f"{{{education.institution}}}"
+            if not education.link
+            else rf"\href{{{education.link}}}{{{education.institution}}}"
+        )
 
         return rf"""\resumeSubheading
               {{{education_link}}}{{{education.location}}}
@@ -165,7 +173,11 @@ class JakeResumeRenderer(Renderer):
           \resumeSubHeadingListEnd"""
 
     def _render_project(self, project: ProjectItem):
-        project_link = f"{{{project.name}}}" if not project.link else fr"\href{{{project.link}}}{{{project.name}}}"
+        project_link = (
+            f"{{{project.name}}}"
+            if not project.link
+            else rf"\href{{{project.link}}}{{{project.name}}}"
+        )
 
         return fr"""\resumeProjectHeading
           {{\textbf{{{project_link}}} $|$ \emph{{{", ".join(project.technologies)}}}}}{{{project.date}}}
