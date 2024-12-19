@@ -45,6 +45,12 @@ def parse_args():
 def main():
     args: Args = parse_args()
 
+    if not args.data_path.exists():
+        raise ValueError("Input data path does not exists")
+
+    if args.out_path.suffix != ".tex":
+        raise ValueError("The output path must end with .tex")
+
     resume_parser = Parser(args.data_path)
     full_resume = resume_parser.parse()
 
