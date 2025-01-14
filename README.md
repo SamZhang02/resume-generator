@@ -1,5 +1,8 @@
 # Resume Generator
 
+> [!WARNING]
+> Work in progress. This README is incomplete.
+
 This tool simplifies the process of tailoring your resume for specific job applications. By maintaining a JSON file containing your past job and project experiences, the tool can generate a `.tex` file in the format of [Jake's Resume](https://www.overleaf.com/latex/templates/jakes-resume/syzfjbzwjncs). This allows for quick and easy resume customization.
 
 [![asciicast](https://asciinema.org/a/Cfp7G8oBJNkeIlyg1FBQKyvMK.svg)](https://asciinema.org/a/Cfp7G8oBJNkeIlyg1FBQKyvMK)
